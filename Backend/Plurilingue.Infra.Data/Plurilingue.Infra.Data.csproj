@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <Folder Include="Context\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>

@@ -26,3 +26,5 @@ F:\Fontes\Plurilingue\Backend\Plurilingue.Application\obj\Debug\netcoreapp2.1\Pl
 F:\Fontes\Plurilingue\Backend\Plurilingue.Application\obj\Debug\netcoreapp2.1\Plurilingue.Application.RazorTargetAssemblyInfo.cache
 F:\Fontes\Plurilingue\Backend\Plurilingue.Application\obj\Debug\netcoreapp2.1\Plurilingue.Application.dll
 F:\Fontes\Plurilingue\Backend\Plurilingue.Application\obj\Debug\netcoreapp2.1\Plurilingue.Application.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Application\bin\Debug\netcoreapp2.1\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Application\bin\Debug\netcoreapp2.1\Plurilingue.Services.dll

@@ -29,7 +29,11 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj": {
+                "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -41,6 +45,10 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -60,6 +68,114 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj",
+        "projectName": "Plurilingue.Domain",
+        "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj",
+        "packagesPath": "C:\\Users\\Hamilton\\.nuget\\packages\\",
+        "outputPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Hamilton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj",
+        "projectName": "Plurilingue.Services",
+        "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj",
+        "packagesPath": "C:\\Users\\Hamilton\\.nuget\\packages\\",
+        "outputPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Hamilton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj": {
+                "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
             }
           },
           "imports": [

@@ -931,6 +931,29 @@
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
+      },
+      "Plurilingue.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Plurilingue.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Plurilingue.Domain.dll": {}
+        }
+      },
+      "Plurilingue.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Plurilingue.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Plurilingue.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Plurilingue.Services.dll": {}
+        }
       }
     }
   },
@@ -3569,13 +3592,25 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "Plurilingue.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Plurilingue.Domain/Plurilingue.Domain.csproj",
+      "msbuildProject": "../Plurilingue.Domain/Plurilingue.Domain.csproj"
+    },
+    "Plurilingue.Services/1.0.0": {
+      "type": "project",
+      "path": "../Plurilingue.Services/Plurilingue.Services.csproj",
+      "msbuildProject": "../Plurilingue.Services/Plurilingue.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.4",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Plurilingue.Domain >= 1.0.0",
+      "Plurilingue.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3607,7 +3642,14 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj": {
+              "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Domain\\Plurilingue.Domain.csproj"
+            },
+            "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj": {
+              "projectPath": "F:\\Fontes\\Plurilingue\\Backend\\Plurilingue.Services\\Plurilingue.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
