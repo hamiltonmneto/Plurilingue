@@ -6,7 +6,7 @@ namespace Plurilingue.Application.AutoMapper
 {
     public class UserProfile : Profile
     {
-        protected UserProfile()
+        public UserProfile()
         {
             CreateMap<RegisterInputModel, User>();
         }

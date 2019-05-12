@@ -40,7 +40,7 @@ class NewAccount extends Component {
         data.country = this.state.country
 
         axios({
-            url: 'http://10.0.2.2:5000/v1/AddNewUser',
+            url: 'http://10.0.2.2:5000/v1/Auth/register',
             method: 'post',
             data: {
                 email: this.state.email,
@@ -57,8 +57,8 @@ class NewAccount extends Component {
             // console.warn(response);
           })
           .catch(error => {
-            this.props.navigation.navigate('Erro');
-            // console.warn(error);
+            this.props.navigation.navigate('Erro', {errorMessage: error.response.data});
+            // console.warn(error.response.data);
           });
       
       }

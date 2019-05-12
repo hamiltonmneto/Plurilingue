@@ -1,9 +1,8 @@
 ﻿using Plurilingue.Domain.Entities;
-using Plurilingue.Services.Interfaces;
-using Plurilingue.Services.Interfaces.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Plurilingue.Domain.Interfaces;
+using Plurilingue.Domain.Interfaces.Repositories;
+using Plurilingue.Infra.CrossCutting.Exceptions;
+using System.Linq;
 
 namespace Plurilingue.Services.Services
 {
@@ -18,8 +17,15 @@ namespace Plurilingue.Services.Services
 
         public long AddNewUser(User user)
         {
+            if (_userRepository.GetUserByEmail(user).Any())
+                throw new EmailJaCadastradoException();
             _userRepository.Add(user);
-            return 0;
+            return user.Id;
+        }
+
+        public User Authentication(User user)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

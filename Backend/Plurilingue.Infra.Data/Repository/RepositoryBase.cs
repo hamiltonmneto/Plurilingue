@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Plurilingue.Infra.Data.Context;
-using Plurilingue.Services.Interfaces.Repositories;
+using Plurilingue.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Plurilingue.Infra.Data.Repository
 {
-    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
         protected PlurilingueContext Db = new PlurilingueContext();
 
@@ -40,9 +40,5 @@ namespace Plurilingue.Infra.Data.Repository
             Db.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

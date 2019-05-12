@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Plurilingue.Application.Interfaces;
 using Plurilingue.Application.ViewModels;
+using Plurilingue.Infra.CrossCutting.Exceptions;
 
 namespace Plurilingue.Application.Controllers
 {
@@ -20,18 +21,30 @@ namespace Plurilingue.Application.Controllers
         }
 
         [Route("register")]
-        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterInputModel model)
         {
             try
             {
-
                 return Ok(_userAppService.AddNewUser(model));
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
+
+        [Route("login")]
+        [HttpPost]
+        public async Task<IActionResult> Register(LoginInput model)
+        {
+            try
+            {
+                return Ok(_userAppService.Authentication(model));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
             }
         }
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from './../../../images/logo.png';
+import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window')
 const {height: HEIGHT} = Dimensions.get('window')
@@ -10,6 +11,8 @@ class Login extends Component {
     constructor(){
         super()
         this.state ={
+            email:'',
+            password:'',
             showPass: true,
             press: false
         }
@@ -17,6 +20,32 @@ class Login extends Component {
 
     static navigationOptions = {
         header: null
+    }
+
+    login(){
+        let data = {}
+        data.email = this.state.email
+        data.password = this.state.email
+        axios({
+            url: 'http://10.0.2.2:5000/v1/Auth/login',
+            method: 'post',
+            data: {
+                email: this.state.email,
+                password: this.state.password
+            },
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            }
+          })
+          .then(response => {
+            this.props.navigation.navigate('Success');
+            // console.warn(response);
+          })
+          .catch(error => {
+            this.props.navigation.navigate('Erro', {errorMessage: error.response.data});
+            // console.warn(error.response.data);
+          });
     }
 
     showPass = () => {
@@ -58,7 +87,7 @@ class Login extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.btnLogin}>
+                <TouchableOpacity style={styles.btnLogin} onPress={() => this.login()}>
                     <Text style={styles.text}>Login</Text>
                 </TouchableOpacity>
                 

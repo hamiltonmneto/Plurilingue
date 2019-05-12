@@ -15,4 +15,8 @@
     <Folder Include="Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Plurilingue.Domain\Plurilingue.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

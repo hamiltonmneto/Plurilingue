@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Plurilingue.Application.AppService;
+using Plurilingue.Application.Interfaces;
+using Plurilingue.Domain.Interfaces;
+using Plurilingue.Domain.Interfaces.Repositories;
+using Plurilingue.Infra.Data.Repository;
+using Plurilingue.Services.Services;
 
 namespace Plurilingue
 {
@@ -25,14 +25,9 @@ namespace Plurilingue
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(opt =>
-                {
-                    opt.LoginPath = "/auth/login";
-                    opt.AccessDeniedPath = "/auth/accessdenied";
-                });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAutoMapper();
+            ConfigureBinds(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,5 +42,12 @@ namespace Plurilingue
 
             app.UseMvc();
         }
+        private static void ConfigureBinds(IServiceCollection services)
+        {
+            services.AddTransient<IUserAppService, UserAppService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+        }
+
     }
 }

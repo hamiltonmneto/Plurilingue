@@ -1,4 +1,5 @@
-﻿using Plurilingue.Application.ViewModels;
+﻿using Plurilingue.Application.OutputModels;
+using Plurilingue.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Plurilingue.Application.Interfaces
     public interface IUserAppService
     {
         long AddNewUser(RegisterInputModel model);
+        UserOutputModel Authentication(LoginInput model);
     }
 }
