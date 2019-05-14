@@ -23,9 +23,9 @@ class Login extends Component {
     }
 
     login(){
-        let data = {}
-        data.email = this.state.email
-        data.password = this.state.email
+        // let data = {}
+        // data.email = this.state.email
+        // data.password = this.state.password
         axios({
             url: 'http://10.0.2.2:5000/v1/Auth/login',
             method: 'post',
@@ -39,7 +39,7 @@ class Login extends Component {
             }
           })
           .then(response => {
-            this.props.navigation.navigate('Success');
+            this.props.navigation.navigate('Home');
             // console.warn(response);
           })
           .catch(error => {
@@ -70,6 +70,8 @@ class Login extends Component {
                         placeholder={'Username'}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid='transparent'
+                        onChangeText={value=> this.setState({ email: value})}
+                        value={this.state.email}
                     />
                 </View>
 
@@ -81,6 +83,8 @@ class Login extends Component {
                         secureTextEntry={this.state.showPass}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid='transparent'
+                        onChangeText={value=> this.setState({ password: value})}
+                        value={this.state.password}
                     />
                     <TouchableOpacity style={styles.btnEye} onPress={this.showPass.bind(this)}>
                         <Icon name={this.state.press == false ? 'visibility-off' : 'visibility'} size={26} color={'rgba(255,255,255,0.7)'}/>

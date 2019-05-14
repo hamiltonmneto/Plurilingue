@@ -42,9 +42,13 @@ namespace Plurilingue.Application.Controllers
             {
                 return Ok(_userAppService.Authentication(model));
             }
-            catch (Exception ex)
+            catch(PlurilingueException ex)
             {
                 return new BadRequestObjectResult(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult("Internal Error, please report to us.");
             }
         }
     }

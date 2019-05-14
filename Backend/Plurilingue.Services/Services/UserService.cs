@@ -25,7 +25,13 @@ namespace Plurilingue.Services.Services
 
         public User Authentication(User user)
         {
-            throw new System.NotImplementedException();
+            var dbUser = _userRepository.GetUserByEmail(user);
+            if (!dbUser.Any())
+                throw new EmailNaoCadastradoException();
+            if (dbUser.FirstOrDefault().Password != user.Password)
+                throw new IncorrectPasswordException();
+
+            return dbUser.FirstOrDefault();
         }
     }
 }

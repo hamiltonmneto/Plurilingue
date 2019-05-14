@@ -36,7 +36,7 @@ class NewAccount extends Component {
     submit(){
         let data = {}
         data.email = this.state.email
-        data.password = this.state.email
+        data.password = this.state.password
         data.country = this.state.country
 
         axios({
@@ -57,8 +57,8 @@ class NewAccount extends Component {
             // console.warn(response);
           })
           .catch(error => {
-            this.props.navigation.navigate('Erro', {errorMessage: error.response.data});
-            // console.warn(error.response.data);
+            // console.warn(this.props.navigation.state.routeName);
+            this.props.navigation.navigate('Erro', {errorMessage: error.response.data, screenPath: this.props.navigation.state.routeName});
           });
       
       }

@@ -6,11 +6,19 @@ import LottieView from 'lottie-react-native';
 // create a component
 class Erro extends Component {
 
+    redirectScreen(screenPath){
+        if(screenPath == 'NewAccount')
+            this.props.navigation.navigate('NewAccount')
+        else
+            this.props.navigation.navigate('Login')
+    }
+
     static navigationOptions = {
         header: null
     }
     render() {
         const { navigation } = this.props;
+        const screenPath = navigation.getParam('screenPath');
         const errorMessage = navigation.getParam('errorMessage');
         return (
             <View style={styles.container}>
@@ -20,9 +28,9 @@ class Erro extends Component {
                 duration={2000} 
                 source={require('../../../android/animations/4970-unapproved-cross.json')} autoPlay />
                 <Text style={styles.text}>Ops... Something bad happen.</Text>
-                <Text style={styles.text}>Erro: {JSON.stringify(errorMessage)}</Text>
+                <Text style={styles.text}>Erro: {errorMessage}</Text>
                 <Text style={styles.text}>Try again, please.</Text>
-                <TouchableOpacity style={styles.btnSignIn} onPress={() => this.props.navigation.navigate('NewAccount')}>
+                <TouchableOpacity style={styles.btnSignIn} onPress={() => this.redirectScreen(screenPath)}>
                     <Text style={styles.txtBtnSignIn}>Back</Text>
                 </TouchableOpacity>
             </View>
