@@ -36,11 +36,11 @@ class NewAccount extends Component {
     submit(){
         let data = {}
         data.email = this.state.email
-        data.password = this.state.email
+        data.password = this.state.password
         data.country = this.state.country
 
         axios({
-            url: 'http://10.0.2.2:5000/v1/AddNewUser',
+            url: 'http://10.0.2.2:5000/v1/Auth/register',
             method: 'post',
             data: {
                 email: this.state.email,
@@ -57,8 +57,8 @@ class NewAccount extends Component {
             // console.warn(response);
           })
           .catch(error => {
-            this.props.navigation.navigate('Erro');
-            // console.warn(error);
+            // console.warn(this.props.navigation.state.routeName);
+            this.props.navigation.navigate('Erro', {errorMessage: error.response.data, screenPath: this.props.navigation.state.routeName});
           });
       
       }

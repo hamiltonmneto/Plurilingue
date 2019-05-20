@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from './../../../images/logo.png';
+import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window')
 const {height: HEIGHT} = Dimensions.get('window')
@@ -10,6 +11,8 @@ class Login extends Component {
     constructor(){
         super()
         this.state ={
+            email:'',
+            password:'',
             showPass: true,
             press: false
         }
@@ -17,6 +20,29 @@ class Login extends Component {
 
     static navigationOptions = {
         header: null
+    }
+
+    login(){
+        axios({
+            url: 'http://10.0.2.2:5000/v1/Auth/login',
+            method: 'post',
+            data: {
+                email: this.state.email,
+                password: this.state.password
+            },
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            }
+          })
+          .then(response => {
+            this.props.navigation.navigate('Home');
+            // console.warn(response);
+          })
+          .catch(error => {
+            this.props.navigation.navigate('Erro', {errorMessage: error.response.data});
+            // console.warn(error.response.data);
+          });
     }
 
     showPass = () => {
@@ -41,6 +67,8 @@ class Login extends Component {
                         placeholder={'Username'}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid='transparent'
+                        onChangeText={value=> this.setState({ email: value})}
+                        value={this.state.email}
                     />
                 </View>
 
@@ -52,13 +80,15 @@ class Login extends Component {
                         secureTextEntry={this.state.showPass}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid='transparent'
+                        onChangeText={value=> this.setState({ password: value})}
+                        value={this.state.password}
                     />
                     <TouchableOpacity style={styles.btnEye} onPress={this.showPass.bind(this)}>
                         <Icon name={this.state.press == false ? 'visibility-off' : 'visibility'} size={26} color={'rgba(255,255,255,0.7)'}/>
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.btnLogin}>
+                <TouchableOpacity style={styles.btnLogin} onPress={() => this.login()}>
                     <Text style={styles.text}>Login</Text>
                 </TouchableOpacity>
                 
@@ -67,9 +97,9 @@ class Login extends Component {
                         <Text style={styles.text}>Don't have an account?</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.otherButtonsBtn}>
+                    {/* <TouchableOpacity style={styles.otherButtonsBtn}>
                         <Text style={styles.text}>Forget password?</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </View>

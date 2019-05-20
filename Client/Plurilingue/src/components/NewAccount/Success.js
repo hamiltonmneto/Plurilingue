@@ -20,7 +20,7 @@ class Success extends Component {
                 <Text style={styles.text}>Thanks for joining Plurilíngue.</Text>
                 <Text style={styles.text}>We hope you enjoy our services.</Text>
                 <TouchableOpacity style={styles.btnSignIn} onPress={() => this.props.navigation.navigate('Login')}>
-                    <Text style={styles.txtBtnSignIn}>SignIn</Text>
+                    <Text style={styles.txtBtnSignIn}>Sign In</Text>
                 </TouchableOpacity>
             </View>
         );
