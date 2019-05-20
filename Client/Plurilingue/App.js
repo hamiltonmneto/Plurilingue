@@ -12,6 +12,7 @@ import NewAccount from './src/components/NewAccount/NewAccount'
 import Success from './src/components/NewAccount/Success'
 import Erro from './src/components/NewAccount/Erro'
 import Home from './src/components/Home/Home'
+import Forum from './src/components/Forum/Forum'
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
@@ -19,7 +20,8 @@ const MainNavigator = createStackNavigator({
   NewAccount: {screen: NewAccount},
   Success: {screen: Success},
   Home: {screen: Home},
-  Erro: {screen: Erro}
+  Erro: {screen: Erro},
+  Forum: {screen: Forum}
 });
 
 const App = createAppContainer(MainNavigator);

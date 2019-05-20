@@ -2,6 +2,7 @@
 using Plurilingue.Domain.Interfaces;
 using Plurilingue.Domain.Interfaces.Repositories;
 using Plurilingue.Infra.CrossCutting.Exceptions;
+using Plurilingue.Infra.CrossCutting.Validations;
 using System.Linq;
 
 namespace Plurilingue.Services.Services
@@ -17,8 +18,11 @@ namespace Plurilingue.Services.Services
 
         public long AddNewUser(User user)
         {
+            if (!new EmailValidation().IsValidEmail(user.Email))
+                throw new InvalidEmailException();
             if (_userRepository.GetUserByEmail(user).Any())
                 throw new EmailJaCadastradoException();
+            user.UserPoints = 0;
             _userRepository.Add(user);
             return user.Id;
         }

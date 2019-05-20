@@ -23,9 +23,6 @@ class Login extends Component {
     }
 
     login(){
-        // let data = {}
-        // data.email = this.state.email
-        // data.password = this.state.password
         axios({
             url: 'http://10.0.2.2:5000/v1/Auth/login',
             method: 'post',
@@ -100,9 +97,9 @@ class Login extends Component {
                         <Text style={styles.text}>Don't have an account?</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.otherButtonsBtn}>
+                    {/* <TouchableOpacity style={styles.otherButtonsBtn}>
                         <Text style={styles.text}>Forget password?</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </View>

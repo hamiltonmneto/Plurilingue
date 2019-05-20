@@ -30,6 +30,8 @@ namespace Plurilingue.Infra.Data.Migrations
 
                     b.Property<string>("UserName");
 
+                    b.Property<long>("UserPoints");
+
                     b.HasKey("Id");
 
                     b.ToTable("User");
