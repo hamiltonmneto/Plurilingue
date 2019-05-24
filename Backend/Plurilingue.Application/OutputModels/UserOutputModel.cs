@@ -9,5 +9,6 @@ namespace Plurilingue.Application.OutputModels
     {
         public string Email { get; set; }
         public string User { get; set; }
+        public long UserPoints { get; set; }
     }
 }

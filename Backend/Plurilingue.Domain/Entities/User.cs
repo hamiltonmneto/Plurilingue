@@ -9,6 +9,8 @@ namespace Plurilingue.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
+        public string Country { get; set; }
         public long UserPoints { get; set; }
+        public List<Topic> Questions { get; set; }
     }
 }

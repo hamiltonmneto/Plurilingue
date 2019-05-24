@@ -1,0 +1,14 @@
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Infra.Data.deps.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Infra.Data.runtimeconfig.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Infra.Data.runtimeconfig.dev.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Infra.Data.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Infra.Data.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\bin\Debug\netcoreapp2.1\Plurilingue.Domain.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.csprojAssemblyReference.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.csproj.CoreCompileInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.AssemblyInfoInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.AssemblyInfo.cs
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.csproj.CopyComplete
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Infra.Data\obj\Debug\netcoreapp2.1\Plurilingue.Infra.Data.pdb

@@ -36,8 +36,11 @@ class Login extends Component {
             }
           })
           .then(response => {
-            this.props.navigation.navigate('Home');
-            // console.warn(response);
+            this.props.navigation.navigate('Home', {
+                user: response.data.email,
+                userPoints: response.data.userPoints
+            });
+            // console.warn(response.data);
           })
           .catch(error => {
             this.props.navigation.navigate('Erro', {errorMessage: error.response.data});

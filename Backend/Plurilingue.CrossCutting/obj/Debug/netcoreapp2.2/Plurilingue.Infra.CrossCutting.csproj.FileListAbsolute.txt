@@ -1,0 +1,12 @@
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\bin\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.deps.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\bin\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\bin\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\bin\Debug\netcoreapp2.2\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\bin\Debug\netcoreapp2.2\Plurilingue.Domain.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.csprojAssemblyReference.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.csproj.CoreCompileInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.AssemblyInfoInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.AssemblyInfo.cs
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.csproj.CopyComplete
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.CrossCutting\obj\Debug\netcoreapp2.2\Plurilingue.Infra.CrossCutting.pdb

@@ -24,6 +24,8 @@ namespace Plurilingue.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Country");
+
                     b.Property<string>("Email");
 
                     b.Property<string>("Password");
