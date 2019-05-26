@@ -19,11 +19,14 @@ namespace Plurilingue.Application.Controllers
         {
             _questionAppService = questionAppService;
         }
-        public async Task<IActionResult> AddTopic(TopicInputModel model)
+        [Route("AddQuestion")]
+        [HttpPost]
+        public async Task<IActionResult> AddQuestion(TopicInputModel model)
         {
             try
             {
-                return Ok(_questionAppService.AddNewQuestion(model));
+                _questionAppService.AddNewQuestion(model);
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -31,7 +34,7 @@ namespace Plurilingue.Application.Controllers
             }
         }
 
-        public async Task<IActionResult> UpdateTopic(TopicInputModel model)
+        public async Task<IActionResult> UpdateQuestion(TopicInputModel model)
         {
             try
             {
@@ -43,11 +46,13 @@ namespace Plurilingue.Application.Controllers
             }
         }
 
-        public async Task<IActionResult> GetTopics()
+        [Route("GetQuestions")]
+        [HttpGet]
+        public async Task<IActionResult> GetQuestions()
         {
             try
             {
-                return Ok();
+                return Ok(_questionAppService.GetQuestions());
             }
             catch (Exception ex)
             {

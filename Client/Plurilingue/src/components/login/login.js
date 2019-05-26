@@ -37,7 +37,8 @@ class Login extends Component {
           })
           .then(response => {
             this.props.navigation.navigate('Home', {
-                user: response.data.email,
+                userId: response.data.id,
+                user: response.data.userName,
                 userPoints: response.data.userPoints
             });
             // console.warn(response.data);

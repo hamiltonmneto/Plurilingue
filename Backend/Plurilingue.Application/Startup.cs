@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Plurilingue.Application.AppService;
 using Plurilingue.Application.Interfaces;
 using Plurilingue.Domain.Interfaces;
+using Plurilingue.Domain.Interfaces.Interfaces.Repositories;
+using Plurilingue.Domain.Interfaces.Interfaces.Services;
 using Plurilingue.Domain.Interfaces.Repositories;
 using Plurilingue.Infra.Data.Repository;
 using Plurilingue.Services.Services;
@@ -47,6 +49,9 @@ namespace Plurilingue
             services.AddTransient<IUserAppService, UserAppService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IQuestionAppService, QuestionAppService>();
+            services.AddTransient<IQuestionService, QuestionService>();
+            services.AddTransient<IQuestionRepository, QuestionRepository>();
         }
 
     }

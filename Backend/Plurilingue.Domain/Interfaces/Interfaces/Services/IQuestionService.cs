@@ -7,6 +7,7 @@ namespace Plurilingue.Domain.Interfaces.Interfaces.Services
 {
     public interface IQuestionService
     {
-        long AddNewQuestion(Topic question);
+        void AddNewQuestion(Question question);
+        IEnumerable<Question> GetQuestion();
     }
 }

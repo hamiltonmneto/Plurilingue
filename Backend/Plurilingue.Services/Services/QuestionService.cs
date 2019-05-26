@@ -1,9 +1,7 @@
 ﻿using Plurilingue.Domain.Entities;
 using Plurilingue.Domain.Interfaces.Interfaces.Repositories;
 using Plurilingue.Domain.Interfaces.Interfaces.Services;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Plurilingue.Services.Services
 {
@@ -14,10 +12,12 @@ namespace Plurilingue.Services.Services
         {
             _questionRepository = questionRepository;
         }
-        public long AddNewQuestion(Topic question)
+        public void AddNewQuestion(Question question)
         {
             _questionRepository.Add(question);
-            return 0;
         }
+
+        public IEnumerable<Question> GetQuestion() 
+            => _questionRepository.GetAll();
     }
 }

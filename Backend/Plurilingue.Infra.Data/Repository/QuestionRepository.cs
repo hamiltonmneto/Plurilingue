@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Plurilingue.Infra.Data.Repository
 {
-    public class QuestionRepository : RepositoryBase<Topic>, IQuestionRepository
+    public class QuestionRepository : RepositoryBase<Question>, IQuestionRepository
     {
     }
 }

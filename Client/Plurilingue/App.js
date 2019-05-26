@@ -15,6 +15,7 @@ import Home from './src/components/Home/Home'
 import Forum from './src/components/Forum/Forum'
 import NewTopicForm from './src/components/Forum/NewTopicForm'
 import {createStackNavigator, createAppContainer} from 'react-navigation';
+import QuestionForm from './src/components/Forum/QuestionForm';
 
 const MainNavigator = createStackNavigator({
   Login: {screen: Login},
@@ -23,7 +24,8 @@ const MainNavigator = createStackNavigator({
   Home: {screen: Home},
   Erro: {screen: Erro},
   Forum: {screen: Forum},
-  NewTopicForm: {screen: NewTopicForm}
+  NewTopicForm: {screen: NewTopicForm},
+  QuestionForm: {screen: QuestionForm}
 });
 
 const App = createAppContainer(MainNavigator);

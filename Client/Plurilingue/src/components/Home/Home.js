@@ -15,6 +15,7 @@ class Home extends Component {
     }
     render() {
         const { navigation } = this.props;
+        const userId = navigation.getParam('userId');
         const user = navigation.getParam('user');
         const userPoints = navigation.getParam('userPoints');
         return (
@@ -35,10 +36,12 @@ class Home extends Component {
                     </Text>
                 </View>
                 <View style={{flexDirection:"row", top: 100, justifyContent: 'center' }}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Forum')}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Forum',{
+                        userId: userId
+                    })}>
                         <View style={styles.actionButtons}>
                             <IconMD name="forum" size={100} style={{color: "#fff"}}/>
-                            <Text style={styles.actionButtonsTxt}>Forúm</Text>
+                            <Text style={styles.actionButtonsTxt}>Forum</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity>

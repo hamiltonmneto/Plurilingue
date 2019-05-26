@@ -1,4 +1,5 @@
-﻿using Plurilingue.Application.ViewModels;
+﻿using Plurilingue.Application.OutputModels;
+using Plurilingue.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace Plurilingue.Application.Interfaces
 {
     public interface IQuestionAppService
     {
-        long AddNewQuestion(TopicInputModel model);
+        void AddNewQuestion(TopicInputModel model);
+        List<QuestionsOutPutModel> GetQuestions();
     }
 }

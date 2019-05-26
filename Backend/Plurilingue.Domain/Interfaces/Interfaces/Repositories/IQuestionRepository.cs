@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Plurilingue.Domain.Interfaces.Interfaces.Repositories
 {
-    public interface IQuestionRepository : IRepositoryBase<Topic>
+    public interface IQuestionRepository : IRepositoryBase<Question>
     {
     }
 }
