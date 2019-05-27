@@ -19,5 +19,9 @@ namespace Plurilingue.Services.Services
 
         public IEnumerable<Question> GetQuestion() 
             => _questionRepository.GetAll();
+
+        public Question GetQuestion(long id) 
+            => _questionRepository.GetById(id);
+
     }
 }

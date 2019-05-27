@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Plurilingue.Application.Interfaces;
 using Plurilingue.Application.ViewModels;
@@ -14,14 +11,16 @@ namespace Plurilingue.Application.Controllers
     public class ForumController : ControllerBase
     {
         public readonly IQuestionAppService _questionAppService;
+        public readonly IAnswerAppService _answerAppService;
 
-        public ForumController(IQuestionAppService questionAppService)
+        public ForumController(IQuestionAppService questionAppService, IAnswerAppService answerAppService)
         {
             _questionAppService = questionAppService;
+            _answerAppService = answerAppService;
         }
         [Route("AddQuestion")]
         [HttpPost]
-        public async Task<IActionResult> AddQuestion(TopicInputModel model)
+        public ActionResult AddQuestion(TopicInputModel model)
         {
             try
             {
@@ -48,11 +47,55 @@ namespace Plurilingue.Application.Controllers
 
         [Route("GetQuestions")]
         [HttpGet]
-        public async Task<IActionResult> GetQuestions()
+        public ActionResult GetQuestions()
         {
             try
             {
                 return Ok(_questionAppService.GetQuestions());
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult GetQuestion(long id)
+        {
+            try
+            {
+                var question = _questionAppService.GetQuestion(id);
+                return Ok(question);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
+
+        [Route("RegisterAnswer")]
+        [HttpPost]
+        public ActionResult RegisterAnswer(AnswerInputModel model)
+        {
+            try
+            {
+                _answerAppService.RegisterAnswer(model);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
+
+        [Route("BestAnswer/{id}")]
+        [HttpPost]
+        public ActionResult BestAnswer(long id)
+        {
+            try
+            {
+                _answerAppService.RegisterBestAnswer(id);
+                return Ok();
             }
             catch (Exception ex)
             {

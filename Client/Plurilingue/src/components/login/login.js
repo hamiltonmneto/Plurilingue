@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from './../../../images/logo.png';
 import axios from 'axios';
@@ -14,7 +14,8 @@ class Login extends Component {
             email:'',
             password:'',
             showPass: true,
-            press: false
+            press: false,
+            isLoading: false
         }
     }
 
@@ -23,8 +24,9 @@ class Login extends Component {
     }
 
     login(){
+        this.setState({isLoading: true})
         axios({
-            url: 'http://10.0.2.2:5000/v1/Auth/login',
+            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/login',
             method: 'post',
             data: {
                 email: this.state.email,
@@ -36,6 +38,7 @@ class Login extends Component {
             }
           })
           .then(response => {
+            this.setState({isLoading: false})
             this.props.navigation.navigate('Home', {
                 userId: response.data.id,
                 user: response.data.userName,
@@ -44,6 +47,7 @@ class Login extends Component {
             // console.warn(response.data);
           })
           .catch(error => {
+            this.setState({isLoading: false})
             this.props.navigation.navigate('Erro', {errorMessage: error.response.data});
             // console.warn(error.response.data);
           });
@@ -93,7 +97,11 @@ class Login extends Component {
                 </View>
 
                 <TouchableOpacity style={styles.btnLogin} onPress={() => this.login()}>
-                    <Text style={styles.text}>Login</Text>
+                    {this.state.isLoading ? 
+                        <ActivityIndicator size="large" color="#fff"/> :
+                        <Text style={styles.text}>Login</Text> 
+                    }
+                
                 </TouchableOpacity>
                 
                 <View style={styles.otherButtons}>
@@ -105,7 +113,6 @@ class Login extends Component {
                         <Text style={styles.text}>Forget password?</Text>
                     </TouchableOpacity> */}
                 </View>
-
             </View>
         );
     }

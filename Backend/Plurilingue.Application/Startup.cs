@@ -52,6 +52,9 @@ namespace Plurilingue
             services.AddTransient<IQuestionAppService, QuestionAppService>();
             services.AddTransient<IQuestionService, QuestionService>();
             services.AddTransient<IQuestionRepository, QuestionRepository>();
+            services.AddTransient<IAnswerAppService, AnswerAppService>();
+            services.AddTransient<IAnswerService, AnswerService>();
+            services.AddTransient<IAnswerRepository, AnswerRepository>();
         }
 
     }

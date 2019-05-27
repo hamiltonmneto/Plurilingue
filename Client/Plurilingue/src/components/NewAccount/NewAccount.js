@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image, TextInput} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ActivityIndicator} from 'react-native';
 import defaultAvatar from './../../../images/default-user.jpg';
 import { Container, Header, Content, Form, Item, Input, Label, Icon, Button } from 'native-base';
 import axios from 'axios';
@@ -18,7 +18,8 @@ class NewAccount extends Component {
             password:'',
             country:'',
             showPass: true,
-            press: false
+            press: false,
+            isLoading: false
         }
     }
 
@@ -31,14 +32,9 @@ class NewAccount extends Component {
     }
 
     submit(){
-        let data = {}
-        data.userName = this.state.userName
-        data.email = this.state.email
-        data.password = this.state.password
-        data.country = this.state.country
-
+        this.setState({isLoading: true})
         axios({
-            url: 'http://10.0.2.2:5000/v1/Auth/register',
+            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/register',
             method: 'post',
             data: {
                 userName: this.state.userName,
@@ -52,10 +48,12 @@ class NewAccount extends Component {
             }
           })
           .then(response => {
+            this.setState({isLoading: false})
             this.props.navigation.navigate('Success');
             // console.warn(response);
           })
           .catch(error => {
+            this.setState({isLoading: false})
             // console.warn(this.props.navigation.state.routeName);
             this.props.navigation.navigate('Erro', {errorMessage: error.response.data, screenPath: this.props.navigation.state.routeName});
           });
@@ -95,7 +93,10 @@ class NewAccount extends Component {
                         </Item>
                     </Form>
                     <Button block danger onPress={() => this.submit()} style={{width: WIDTH - 100, marginTop: 60, justifyContent: 'center', left: 50}}>
-                        <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>Sign Up</Text>
+                        {this.state.isLoading ? 
+                            <ActivityIndicator size="large" color="#fff"/> :
+                            <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>Sign Up</Text> 
+                        }      
                     </Button>
                 </Content>
             </Container>

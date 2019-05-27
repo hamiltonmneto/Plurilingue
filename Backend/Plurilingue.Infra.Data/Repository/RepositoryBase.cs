@@ -18,7 +18,7 @@ namespace Plurilingue.Infra.Data.Repository
             Db.SaveChanges();
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(long id)
         {
             return Db.Set<TEntity>().Find(id);
         }

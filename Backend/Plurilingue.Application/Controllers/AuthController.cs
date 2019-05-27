@@ -48,5 +48,19 @@ namespace Plurilingue.Application.Controllers
                 return new BadRequestObjectResult("Internal Error, please report to us.");
             }
         }
+
+        [Route("rank")]
+        [HttpGet]
+        public ActionResult GetTopUser()
+        {
+            try
+            {
+                return Ok(_userAppService.GetTopUser());
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+            }
+        }
     }
 }

@@ -44,7 +44,7 @@ class Home extends Component {
                             <Text style={styles.actionButtonsTxt}>Forum</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Rank')}>
                         <View style={styles.actionButtons}>
                             <IconMD name="group" size={100} style={{color: "#fff"}}/>
                             <Text style={styles.actionButtonsTxt}>Rank</Text>

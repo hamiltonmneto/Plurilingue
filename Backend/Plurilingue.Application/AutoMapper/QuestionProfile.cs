@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Plurilingue.Application.OutputModels;
 using Plurilingue.Application.ViewModels;
 using Plurilingue.Domain.Entities;
 using System;
@@ -13,6 +14,8 @@ namespace Plurilingue.Application.AutoMapper
         public QuestionProfile()
         {
             CreateMap<TopicInputModel,Question>();
+            CreateMap<AnswerOutputModel, Answer>();
+            CreateMap<QuestionsOutPutModel, Question>();
         }
     }
 }

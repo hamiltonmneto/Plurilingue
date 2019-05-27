@@ -18,6 +18,25 @@ namespace Plurilingue.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Plurilingue.Domain.Entities.Answer", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsBestAnswer");
+
+                    b.Property<long>("Question_Id");
+
+                    b.Property<string>("TextContent");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Question_Id");
+
+                    b.ToTable("Answer");
+                });
+
             modelBuilder.Entity("Plurilingue.Domain.Entities.Question", b =>
                 {
                     b.Property<long>("Id")
@@ -58,6 +77,14 @@ namespace Plurilingue.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("Plurilingue.Domain.Entities.Answer", b =>
+                {
+                    b.HasOne("Plurilingue.Domain.Entities.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("Question_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Plurilingue.Domain.Entities.Question", b =>

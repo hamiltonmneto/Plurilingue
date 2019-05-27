@@ -9,5 +9,6 @@ namespace Plurilingue.Domain.Interfaces.Interfaces.Services
     {
         void AddNewQuestion(Question question);
         IEnumerable<Question> GetQuestion();
+        Question GetQuestion(long id);
     }
 }

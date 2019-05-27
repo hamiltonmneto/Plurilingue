@@ -14,8 +14,9 @@ import Erro from './src/components/NewAccount/Erro'
 import Home from './src/components/Home/Home'
 import Forum from './src/components/Forum/Forum'
 import NewTopicForm from './src/components/Forum/NewTopicForm'
-import {createStackNavigator, createAppContainer} from 'react-navigation';
-import QuestionForm from './src/components/Forum/QuestionForm';
+import QuestionForm from './src/components/Forum/QuestionForm'
+import Rank from './src/components/Rank/Rank'
+import {createStackNavigator, createAppContainer} from 'react-navigation'
 
 const MainNavigator = createStackNavigator({
   Login: {screen: Login},
@@ -25,7 +26,8 @@ const MainNavigator = createStackNavigator({
   Erro: {screen: Erro},
   Forum: {screen: Forum},
   NewTopicForm: {screen: NewTopicForm},
-  QuestionForm: {screen: QuestionForm}
+  QuestionForm: {screen: QuestionForm},
+  Rank: {screen: Rank}
 });
 
 const App = createAppContainer(MainNavigator);

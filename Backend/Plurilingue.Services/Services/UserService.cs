@@ -3,6 +3,7 @@ using Plurilingue.Domain.Interfaces;
 using Plurilingue.Domain.Interfaces.Repositories;
 using Plurilingue.Infra.CrossCutting.Exceptions;
 using Plurilingue.Infra.CrossCutting.Validations;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Plurilingue.Services.Services
@@ -37,5 +38,8 @@ namespace Plurilingue.Services.Services
 
             return dbUser.FirstOrDefault();
         }
+
+        public List<User> GetTopUsers() 
+            => _userRepository.GetAll().ToList();
     }
 }

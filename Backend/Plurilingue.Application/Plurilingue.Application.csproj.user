@@ -10,6 +10,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <ActiveDebugProfile>Plurilingue</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>PlurilingueApplication20190526092258 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

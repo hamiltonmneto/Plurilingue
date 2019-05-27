@@ -25,9 +25,11 @@ namespace Plurilingue.Application.AppService
             _questionService.AddNewQuestion(_mapper.Map<TopicInputModel,Question>(model));
         }
 
-        public List<QuestionsOutPutModel> GetQuestions()
-        {
-            return _mapper.Map<List<QuestionsOutPutModel>>(_questionService.GetQuestion());
-        }
+        public QuestionsOutPutModel GetQuestion(long id) 
+            => _mapper.Map<QuestionsOutPutModel>(_questionService.GetQuestion(id));
+
+        public List<QuestionsOutPutModel> GetQuestions() 
+            => _mapper.Map<List<QuestionsOutPutModel>>(_questionService.GetQuestion());
+
     }
 }

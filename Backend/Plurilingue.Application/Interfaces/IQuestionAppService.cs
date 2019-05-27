@@ -11,5 +11,6 @@ namespace Plurilingue.Application.Interfaces
     {
         void AddNewQuestion(TopicInputModel model);
         List<QuestionsOutPutModel> GetQuestions();
+        QuestionsOutPutModel GetQuestion(long id);
     }
 }

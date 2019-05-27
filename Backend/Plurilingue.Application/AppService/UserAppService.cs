@@ -4,7 +4,7 @@ using Plurilingue.Application.OutputModels;
 using Plurilingue.Application.ViewModels;
 using Plurilingue.Domain.Entities;
 using Plurilingue.Domain.Interfaces;
-using System;
+using System.Collections.Generic;
 
 namespace Plurilingue.Application.AppService
 {
@@ -23,5 +23,8 @@ namespace Plurilingue.Application.AppService
 
         public UserOutputModel Authentication(LoginInput model) 
             => _mapper.Map<User, UserOutputModel>(_userService.Authentication(_mapper.Map<LoginInput, User>(model)));
+
+        public List<UserOutputModel> GetTopUser()
+            => _mapper.Map<List<User>, List<UserOutputModel>>(_userService.GetTopUsers());
     }
 }
