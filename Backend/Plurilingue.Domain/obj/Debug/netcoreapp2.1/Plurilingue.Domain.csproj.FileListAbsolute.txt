@@ -1,0 +1,9 @@
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\bin\Debug\netcoreapp2.1\Plurilingue.Domain.deps.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\bin\Debug\netcoreapp2.1\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\bin\Debug\netcoreapp2.1\Plurilingue.Domain.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.csprojAssemblyReference.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.csproj.CoreCompileInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.AssemblyInfoInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.AssemblyInfo.cs
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Domain\obj\Debug\netcoreapp2.1\Plurilingue.Domain.pdb

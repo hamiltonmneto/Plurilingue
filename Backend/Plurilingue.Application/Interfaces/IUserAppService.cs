@@ -11,5 +11,6 @@ namespace Plurilingue.Application.Interfaces
     {
         long AddNewUser(RegisterInputModel model);
         UserOutputModel Authentication(LoginInput model);
+        List<UserOutputModel> GetTopUser();
     }
 }

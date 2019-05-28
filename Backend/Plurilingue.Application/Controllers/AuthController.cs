@@ -33,7 +33,7 @@ namespace Plurilingue.Application.Controllers
 
         [Route("login")]
         [HttpPost]
-        public async Task<IActionResult> Register(LoginInput model)
+        public async Task<IActionResult> Login(LoginInput model)
         {
             try
             {
@@ -46,6 +46,20 @@ namespace Plurilingue.Application.Controllers
             catch (Exception ex)
             {
                 return new BadRequestObjectResult("Internal Error, please report to us.");
+            }
+        }
+
+        [Route("rank")]
+        [HttpGet]
+        public ActionResult GetTopUser()
+        {
+            try
+            {
+                return Ok(_userAppService.GetTopUser());
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
             }
         }
     }

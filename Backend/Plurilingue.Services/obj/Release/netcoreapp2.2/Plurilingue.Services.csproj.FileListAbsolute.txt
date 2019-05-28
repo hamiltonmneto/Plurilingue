@@ -1,0 +1,16 @@
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Services.deps.json
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Services.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Services.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Domain.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Infra.CrossCutting.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Infra.Data.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Infra.CrossCutting.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Domain.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\bin\Release\netcoreapp2.2\Plurilingue.Infra.Data.pdb
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.csprojAssemblyReference.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.csproj.CoreCompileInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.AssemblyInfoInputs.cache
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.AssemblyInfo.cs
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.csproj.CopyComplete
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.dll
+F:\Fontes\Plurilingue\Backend\Plurilingue.Services\obj\Release\netcoreapp2.2\Plurilingue.Services.pdb

@@ -1,4 +1,5 @@
 ﻿using Plurilingue.Domain.Entities;
+using System.Collections.Generic;
 
 namespace Plurilingue.Domain.Interfaces
 {
@@ -6,5 +7,6 @@ namespace Plurilingue.Domain.Interfaces
     {
         long AddNewUser(User user);
         User Authentication(User user);
+        List<User> GetTopUsers();
     }
 }

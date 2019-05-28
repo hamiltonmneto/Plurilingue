@@ -2,18 +2,18 @@
 using Plurilingue.Domain.Entities;
 using Plurilingue.Infra.Data.Mapping;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Plurilingue.Infra.Data.Context
 {
     public class PlurilingueContext : DbContext
     {
         public DbSet<User> User { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Answer> Answer { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-S1GAE1H\SQLEXPRESS;Initial Catalog=Plurilinguedb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=plurilingue01.database.windows.net;Initial Catalog=Plurilingue.Application_db;User ID=hamilton;Password=Marcela01;Trusted_Connection=false;Encrypt=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +21,8 @@ namespace Plurilingue.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>(new UserMap().Configure);
+            modelBuilder.Entity<Question>(new QuestionMap().Configure);
+            modelBuilder.Entity<Answer>(new AnswerMap().Configure);
         }
 
         public override int SaveChanges()

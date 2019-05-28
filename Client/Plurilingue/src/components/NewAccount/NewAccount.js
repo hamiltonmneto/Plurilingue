@@ -1,8 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image, TextInput} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ActivityIndicator} from 'react-native';
 import defaultAvatar from './../../../images/default-user.jpg';
+import { Container, Header, Content, Form, Item, Input, Label, Icon, Button } from 'native-base';
 import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window')
@@ -13,16 +13,14 @@ class NewAccount extends Component {
     constructor(props){
         super(props);
         this.state = {
+            userName:'',
             email:'',
             password:'',
             country:'',
             showPass: true,
-            press: false
+            press: false,
+            isLoading: false
         }
-    }
-
-    static navigationOptions = {
-        header: null
     }
 
     showPass = () => {
@@ -34,15 +32,12 @@ class NewAccount extends Component {
     }
 
     submit(){
-        let data = {}
-        data.email = this.state.email
-        data.password = this.state.password
-        data.country = this.state.country
-
+        this.setState({isLoading: true})
         axios({
-            url: 'http://10.0.2.2:5000/v1/Auth/register',
+            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/register',
             method: 'post',
             data: {
+                userName: this.state.userName,
                 email: this.state.email,
                 password: this.state.password,
                 country: this.state.country
@@ -53,10 +48,12 @@ class NewAccount extends Component {
             }
           })
           .then(response => {
+            this.setState({isLoading: false})
             this.props.navigation.navigate('Success');
             // console.warn(response);
           })
           .catch(error => {
+            this.setState({isLoading: false})
             // console.warn(this.props.navigation.state.routeName);
             this.props.navigation.navigate('Erro', {errorMessage: error.response.data, screenPath: this.props.navigation.state.routeName});
           });
@@ -65,61 +62,44 @@ class NewAccount extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.navigate('Login')}>
-                    <Icon name='keyboard-arrow-left' size={50} color={'rgba(255,255,255,0.7)'}/>
-                </TouchableOpacity>
-
-                <View style={styles.avatarContainer}>
-                    <Image style={styles.userAvartar} source={defaultAvatar}/>
-                </View>
-
-                <View style={styles.inputContainer}>
-                    {/* <Icon name='person-outline' size={28} color={'rgba(255,255,255,0.7)'} style={styles.iconInput}/> */}
-                    <TextInput 
-                        style={styles.input}
-                        placeholder={'E-mail'}
-                        placeholderTextColor={'rgba(255,255,255,0.7)'}
-                        underlineColorAndroid='transparent'
-                        onChangeText={value=> this.setState({ email: value})}
-                        value={this.state.email}
-                    />
-                </View>
-
-                <View style={styles.inputContainer}>
-                    <Icon name='lock-outline' size={28} color={'rgba(255,255,255,0.7)'} style={styles.iconInput}/>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder={'Password'}
-                        secureTextEntry={this.state.showPass}
-                        placeholderTextColor={'rgba(255,255,255,0.7)'}
-                        underlineColorAndroid='transparent'
-                        onChangeText={value=> this.setState({ password: value})}
-                        value={this.state.password}
-                    />
-
-                    <TouchableOpacity style={styles.btnEye} onPress={this.showPass.bind(this)}>
-                        <Icon name={this.state.press == false ? 'visibility-off' : 'visibility'} size={26} color={'rgba(255,255,255,0.7)'}/>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.inputContainer}>
-                    {/* <Icon name='person-outline' size={28} color={'rgba(255,255,255,0.7)'} style={styles.iconInput}/> */}
-                    <TextInput 
-                        style={styles.input}
-                        placeholder={'Country'}
-                        placeholderTextColor={'rgba(255,255,255,0.7)'}
-                        underlineColorAndroid='transparent'
-                        onChangeText={value=> this.setState({ country: value})}
-                        value={this.state.country}
-                    />
-                </View>
-
-                <TouchableOpacity style={styles.btnCreate} onPress={() => this.submit()}>
-                    <Text style={styles.text}>Sign up</Text>
-                </TouchableOpacity>
-
-            </View>
+            <Container>
+                <Content>
+                    <Form style={{marginTop: 50}}>
+                        <Item floatingLabel>
+                            <Label>Username</Label>
+                            <Input 
+                                onChangeText={value=> this.setState({ userName: value})} 
+                                value={this.state.userName} />
+                        </Item>
+                        <Item floatingLabel>
+                            <Label>E-mail</Label>
+                            <Input 
+                                onChangeText={value=> this.setState({ email: value})} 
+                                value={this.state.email} />
+                        </Item>
+                        <Item floatingLabel  onPress={this.showPass.bind(this)}>
+                            <Label>Password</Label>
+                            <Input 
+                                onChangeText={value=> this.setState({ password: value})} 
+                                value={this.state.password}
+                                secureTextEntry={this.state.showPass} />
+                            <Icon name={this.state.press == false ? 'eye-off' : 'eye'} size={26} color={'rgba(255,255,255,0.7)'}/>
+                        </Item>
+                        <Item floatingLabel>
+                            <Label>Country</Label>
+                            <Input 
+                                onChangeText={value=> this.setState({ country: value})} 
+                                value={this.state.country} />
+                        </Item>
+                    </Form>
+                    <Button block danger onPress={() => this.submit()} style={{width: WIDTH - 100, marginTop: 60, justifyContent: 'center', left: 50}}>
+                        {this.state.isLoading ? 
+                            <ActivityIndicator size="large" color="#fff"/> :
+                            <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>Sign Up</Text> 
+                        }      
+                    </Button>
+                </Content>
+            </Container>
         );
     }
 }
