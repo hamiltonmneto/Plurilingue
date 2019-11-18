@@ -13,7 +13,8 @@ namespace Plurilingue.Infra.Data.Context
         public DbSet<Answer> Answer { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=plurilingue01.database.windows.net;Initial Catalog=Plurilingue.Application_db;User ID=hamilton;Password=Marcela01;Trusted_Connection=false;Encrypt=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=plurilingue01.database.windows.net;Initial Catalog=Plurilingue.Application_db;User ID=hamilton;Password=Marcela01;Trusted_Connection=false;Encrypt=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-S1GAE1H\SQLEXPRESS;Initial Catalog=Plurilinguedb;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

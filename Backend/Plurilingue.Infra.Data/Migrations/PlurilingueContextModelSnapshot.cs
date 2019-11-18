@@ -30,9 +30,13 @@ namespace Plurilingue.Infra.Data.Migrations
 
                     b.Property<string>("TextContent");
 
+                    b.Property<long>("User_Id");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Question_Id");
+
+                    b.HasIndex("User_Id");
 
                     b.ToTable("Answer");
                 });
@@ -84,6 +88,11 @@ namespace Plurilingue.Infra.Data.Migrations
                     b.HasOne("Plurilingue.Domain.Entities.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("Question_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Plurilingue.Domain.Entities.User", "User")
+                        .WithMany("Answer")
+                        .HasForeignKey("User_Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

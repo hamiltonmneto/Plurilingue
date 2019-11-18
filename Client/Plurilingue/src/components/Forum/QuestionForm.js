@@ -15,13 +15,14 @@ class QuestionForm extends Component {
             question: [],
             AnswerContent: '',
             isAuthor: false,
-            isResponder: false
+            isResponder: false,
+            userId: ''
         }
     }
 
     bestAnswerPressed(id){
         axios({
-            url: `https://plurilingueapplication20190526092258.azurewebsites.net/v1/Forum/BestAnswer/${id}`,
+            url: `http://10.0.2.2:5000/v1/Forum/BestAnswer/${id}`,
             method: 'post',
             data: {
                 id: id,
@@ -35,18 +36,19 @@ class QuestionForm extends Component {
             this.props.navigation.navigate('Forum');
           })
           .catch(error => {
-            console.warn("DEU ERRO");
             // this.props.navigation.navigate('Erro', {errorMessage: error.response.data, screenPath: this.props.navigation.state.routeName});
           });
     }
 
     submit(){
-
+        const { navigation } = this.props;
+        const userId = navigation.getParam('userId');
         axios({
-            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Forum/RegisterAnswer',
+            url: 'http://10.0.2.2:5000/v1/Forum/RegisterAnswer',
             method: 'post',
             data: {
-                Question_Id: this.state.question.id,
+                UserId: userId,
+                QuestionId: this.state.question.id,
                 AnswerContent: this.state.AnswerContent
             },
             headers: {
@@ -58,7 +60,6 @@ class QuestionForm extends Component {
             this.props.navigation.navigate('Forum');
           })
           .catch(error => {
-            console.warn("DEU ERRO");
           });
       
       }
@@ -78,6 +79,12 @@ class QuestionForm extends Component {
                         <Body>
                             <Text style={styles.title}>{this.state.question.title}</Text>
                             <Text note numberOfLines={1} style={styles.textContent}>{this.state.question.textContent}</Text>
+                            <Text>
+                                Asked: 
+                                <Text style={styles.autor}>
+                                    {this.state.question.user.userName} 
+                                </Text>
+                            </Text>
                         </Body>
                     </ListItem>
                     <FlatList
@@ -90,6 +97,12 @@ class QuestionForm extends Component {
                             </Left>
                             <Body>
                                 <Text>{item.textContent}</Text>
+                                <Text>
+                                    Answered: 
+                                    <Text style={styles.autor}>
+                                        {item.user.userName}
+                                    </Text>
+                                </Text>
                             </Body>
                         </ListItem>
                     )} 
@@ -139,6 +152,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#f1efef',
         width: WIDTH - 40,
         borderRadius: 10,  
+    },
+    autor:{
+        color: '#07C'
     }
 });
 

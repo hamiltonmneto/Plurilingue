@@ -51,7 +51,8 @@ namespace Plurilingue.Application.Controllers
         {
             try
             {
-                return Ok(_questionAppService.GetQuestions());
+                var questions = _questionAppService.GetQuestions();
+                return Ok(questions);
             }
             catch (Exception ex)
             {

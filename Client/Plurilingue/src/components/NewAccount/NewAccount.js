@@ -34,7 +34,7 @@ class NewAccount extends Component {
     submit(){
         this.setState({isLoading: true})
         axios({
-            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/register',
+            url: 'http://10.0.2.2:5000/v1/Auth/register',
             method: 'post',
             data: {
                 userName: this.state.userName,

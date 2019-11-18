@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import logo from './../../../images/logo.png';
+import BalloonFlagsImg from './../../../images/balloon-flags.jpg';
+import logo from './../../../images/banner.png';
 import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window')
@@ -26,7 +27,7 @@ class Login extends Component {
     login(){
         this.setState({isLoading: true})
         axios({
-            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/login',
+            url: 'http://10.0.2.2:5000/v1/Auth/login',
             method: 'post',
             data: {
                 email: this.state.email,
@@ -65,7 +66,6 @@ class Login extends Component {
             <View style={styles.container}>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo}></Image>
-                    <Text style={styles.logoText}>Plurilíngue</Text>
                 </View>
 
                 <View style={styles.inputContainer}>
@@ -124,14 +124,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#d63031',
+        backgroundColor: '#ec1c22',
     },
     logoContainer: {
         alignItems: 'center'
     },
     logo: {
-        width: 150,
-        height: 150
+        width: WIDTH,
+        height: HEIGHT - 370
     },
     logoText: {
         color: 'white',

@@ -7,7 +7,8 @@ namespace Plurilingue.Application.ViewModels
 {
     public class AnswerInputModel
     {
-        public long Question_Id { get; set; }
+        public long UserId { get; set; }
+        public long QuestionId { get; set; }
         public string AnswerContent { get; set; }
     }
 }

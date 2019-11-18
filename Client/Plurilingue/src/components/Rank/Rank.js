@@ -15,7 +15,7 @@ class Rank extends Component {
     }
 
     componentWillMount(){
-        fetch('https://plurilingueapplication20190526092258.azurewebsites.net/v1/Auth/rank')
+        fetch('http://10.0.2.2:5000/v1/Auth/rank')
         .then((response) => response.json())
         .then((responseJson) => {
           this.setState({

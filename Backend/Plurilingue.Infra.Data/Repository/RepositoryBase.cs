@@ -23,7 +23,7 @@ namespace Plurilingue.Infra.Data.Repository
             return Db.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return Db.Set<TEntity>().ToList();
         }

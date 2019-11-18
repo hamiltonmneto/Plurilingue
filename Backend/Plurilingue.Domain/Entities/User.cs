@@ -12,5 +12,6 @@ namespace Plurilingue.Domain.Entities
         public string Country { get; set; }
         public long UserPoints { get; set; }
         public List<Question> Questions { get; set; }
+        public List<Answer> Answer { get; set; }
     }
 }

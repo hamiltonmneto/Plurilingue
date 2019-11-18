@@ -14,7 +14,7 @@ class Forum extends Component {
  }
 
  componentWillMount(){
-    fetch('https://plurilingueapplication20190526092258.azurewebsites.net/v1/forum/GetQuestions')
+    fetch('http://10.0.2.2:5000/v1/forum/GetQuestions')
     .then((response) => response.json())
     .then((responseJson) => {
       this.setState({
@@ -24,7 +24,7 @@ class Forum extends Component {
   }
 
   viewQuestion(id,userId){
-    fetch(`https://plurilingueapplication20190526092258.azurewebsites.net/v1/forum/${id}`)
+    fetch(`http://10.0.2.2:5000/v1/forum/${id}`)
     .then((response) => response.json())
     .then((responseJson) => {
       this.props.navigation.navigate('QuestionForm',{question: responseJson, userId: userId})
@@ -50,6 +50,7 @@ class Forum extends Component {
                 <Body>
                   <Text>{item.title}</Text>
                   <Text note numberOfLines={1}>Language: {item.language}</Text>
+                  <Text>Asked by: {item.user.userName} </Text>
                 </Body>
                 <Right>
                   <Button transparent onPress={() => this.viewQuestion(item.id, userId)}>

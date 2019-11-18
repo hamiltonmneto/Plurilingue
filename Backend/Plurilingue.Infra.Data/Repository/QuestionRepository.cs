@@ -17,9 +17,16 @@ namespace Plurilingue.Infra.Data.Repository
                 .Include(x => x.User)
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
-            question.Answers = question.Answers.OrderByDescending(x => x.IsBestAnswer == true).ToList();
+            //question.Answers = question.Answers.OrderByDescending(x => x.IsBestAnswer == true).ToList();
+            question.Answers = Db.Set<Answer>().Include(x => x.User).OrderByDescending(x => x.IsBestAnswer == true).ToList();
 
             return question;
+        }
+
+        public override IEnumerable<Question> GetAll()
+        {
+            var questions = Db.Set<Question>().Include(x => x.User);
+            return questions.ToList();
         }
     }
 }

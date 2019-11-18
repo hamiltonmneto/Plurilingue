@@ -21,7 +21,7 @@ class NewTopicForm extends Component {
     submit(userId){
 
         axios({
-            url: 'https://plurilingueapplication20190526092258.azurewebsites.net/v1/forum/AddQuestion',
+            url: 'http://10.0.2.2:5000/v1/forum/AddQuestion',
             method: 'post',
             data: {
                 User_id: userId,
